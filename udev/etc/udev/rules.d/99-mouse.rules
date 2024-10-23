@@ -1,0 +1,8 @@
+ACTION=="bind", \
+SUBSYSTEMS=="usb", \
+ATTRS{idVendor}=="062a|258a", \ 
+ATTRS{idProduct}=="5918|0027", \
+ENV{DISPLAY}=":0", \
+ENV{XAUTHORITY}="/run/user/1000/gdm/Xauthority", \
+RUN+="/home/sh/.local/bin/set-mouse-speed-udev"
+

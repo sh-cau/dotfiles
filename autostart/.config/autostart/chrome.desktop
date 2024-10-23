@@ -1,0 +1,5 @@
+[Desktop Entry]
+Type=Application
+Name=Google Chrome
+Exec=/usr/bin/google-chrome
+Terminal=false

@@ -1,0 +1,1 @@
+xinput | awk '/Wacom/ {print $9}' cut -d'=' -f2 | xargs -I {} xinput map-to-output {} HDMI-1

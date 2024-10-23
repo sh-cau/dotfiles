@@ -1,0 +1,13 @@
+[Unit]
+Description=Monitor hotplug service
+
+[Service]
+Type=simple
+
+# Change path to hotplug script as needed
+# Environment=DISPLAY=:0
+# Environment=XAUTHORITY=/run/user/1000/gdm/Xauthority
+ExecStart="/home/sh/.local/bin/hotplug-monitor"
+
+[Install]
+WantedBy=multi-user.target

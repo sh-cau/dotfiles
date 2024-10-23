@@ -1,0 +1,9 @@
+#!/bin/bash
+filenames=$(fd -t f -e heic .)
+# convert each heic file to jpg with the same file name
+for filename in $filenames
+do
+    echo "converting $filename"
+    heif-convert -q 85 $filename ${filename%.*}.jpg
+done
+

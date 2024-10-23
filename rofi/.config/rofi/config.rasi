@@ -1,0 +1,26 @@
+configuration {
+  modes: "combi,window,run,drun";
+  show-icons: true;
+  combi-modes: "window,drun,run";
+  matching: "fuzzy";
+
+  timeout {
+      action: "kb-cancel";
+      delay:  0;
+  }
+
+  filebrowser {
+      directories-first: true;
+      sorting-method: "name";
+  }
+}
+
+@theme "rounded-nord-dark"
+
+* {
+  font: "Cartograph CF 12";
+}
+
+window {
+  width: 55%;
+}

@@ -1,0 +1,20 @@
+#!/bin/bash
+
+sleep 3
+DISPLAY=:0
+XAUTHORITY=/run/user/1000/gdm/Xauthority
+export DISPLAY XAUTHORITY
+
+MOSART="MOSART Semi. 2.4G Keyboard Mouse"
+SINOWEALTH="SINOWEALTH Wired Gaming Mouse"
+LOGITECH="Logitech ZSB Optical Mouse"
+declare -a MICE
+MICE=("$MOSART" "$SINOWEALTH" "$LOGITECH");
+
+/usr/bin/notify-send "Adjusting mouse speed for mice $MICE..."
+
+
+for MOUSE in "${MICE[@]}"; do
+    /usr/bin/xinput --list | /usr/bin/sed -n -E "/$MOUSE\s*id=.*pointer/s/.*=([0-9]+).*/\1/p" | /usr/bin/xargs -I {} /usr/bin/xinput set-prop {} 'libinput Accel Speed' -1
+done
+

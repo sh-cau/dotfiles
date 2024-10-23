@@ -1,0 +1,35 @@
+#!/bin/bash
+
+# export DISPLAY=":0"
+# export XAUTHORITY="/run/user/1000/gdm/Xauthority"
+
+internalMonitor="eDP-1"
+
+declare -a connectedMonitors 
+
+# for dir in /sys/class/drm/*/; do
+#     if [[ -e "${dir}/status" && $(cat "${dir}/status") == "connected" ]]; then
+#         connectedMonitors+=( $(basename "${dir}" | sed -e 's/card[0-9]-//g' -e 's/-[A-Z]-/-/g') )
+#     fi
+# done
+
+connectedMonitors=( $(xrandr | grep " connected" | awk '{print $1}') )
+
+previousMonitor="${internalMonitor}"
+for monitor in "${connectedMonitors[@]}"; do
+    if [[ "$monitor" != "$internalMonitor" ]]; then
+        xrandr --output "${monitor}" --auto --left-of "${previousMonitor}"
+        previousMonitor="${monitor}"
+    fi
+done
+
+if [[ ${#connectedMonitors[@]} -eq 1 ]]; then
+    notify-send "One monitor connected: ${connectedMonitors[*]}.." 
+    /usr/bin/feh --bg-tile /home/sh/Pictures/Wallpapers/matterhorn.jpg
+elif [[ ${#connectedMonitors[@]} -eq 2 ]]; then
+    notify-send "Two monitors connected: ${connectedMonitors[*]}.."
+    /usr/bin/feh --bg-fill /home/sh/Pictures/Wallpapers/colorado-forest.jpg ~/Pictures/Wallpapers/colorado-forest.jpg
+elif [[ ${#connectedMonitors[@]} -eq 3 ]]; then
+    notify-send "Three monitors connected: ${connectedMonitors[*]}.."
+    /usr/bin/feh --bg-fill /home/sh/Pictures/Wallpapers/colorado-forest.jpg ~/Pictures/Wallpapers/colorado-forest.jpg ~/Pictures/Wallpapers/colorado-forest.jpg
+fi

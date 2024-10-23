@@ -1,0 +1,27 @@
+#!/bin/bash
+#
+
+readarray -t <<< $(git log --oneline --all) commitTitles
+
+majorVersionMatch=".*\!: .*"
+minorVersionMatch="^feat: .*"
+patchVersionMatch="^(fix|build|chore|ci|docs|improvement|perf|refactor|revert|style|test): .*"
+
+previousVersionMatch="v?([0-9]+)\.([0-9]+)\.([0-9]+)(-.*)?"
+primeVersionMatch="(v?([0-9]+)\.([0-9]+)\.([0-9]+))(?!-.*)"
+
+readarray -t <<< $(git tag -l --sort=-v:refname) tags
+echo "Tags: ${tags[*]}"
+
+for tag in "${tags[@]}"; do
+    if [[ "$tag" =~ $previousVersionMatch ]]; then
+        previousVersion=$tag
+        echo "Previous version: $previousVersion"
+        break
+    fi
+done
+
+# for commit in "${commitTitles[@]}"; do
+#     echo "Commit: ${commit}"
+# done
+

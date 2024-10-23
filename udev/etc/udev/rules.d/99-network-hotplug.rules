@@ -1,0 +1,6 @@
+ACTION=="add", \
+KERNEL=="en*", \
+SUBSYSTEM=="net", \
+ATTR{address}=="62:1d:3b:2d:c5:29", \
+SYMLINK+="en0", \
+RUN+="/home/sh/.local/bin/set-network-udev"

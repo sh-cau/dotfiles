@@ -1,0 +1,5 @@
+ACTION=="change",\
+KERNELS=="card0",\
+SUBSYSTEMS=="drm",\
+SYMLINK+="testyface",\
+RUN+="/usr/bin/systemctl start --user hotplug-monitor.service"

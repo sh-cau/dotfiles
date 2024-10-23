@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+selected=$(fzf < ~/.tmux-textdoc-packages)
+if [[ -z $selected ]]; then
+    exit 0
+fi
+
+tmux new -d "texdoc $selected & while [ : ]; do sleep 1; done"

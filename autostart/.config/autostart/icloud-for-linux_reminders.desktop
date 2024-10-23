@@ -1,0 +1,11 @@
+[Desktop Entry]
+X-SnapInstanceName=icloud-for-linux
+Version=0.11
+Name=iCloud Reminders
+GenericName=iCloud Reminders
+Comment=iCloud Reminders
+Type=Application
+Categories=Office
+Icon=/snap/icloud-for-linux/240/meta/gui/reminders.png
+Exec=env BAMF_DESKTOP_FILE_HINT=/var/lib/snapd/desktop/applications/icloud-for-linux_reminders.desktop /snap/bin/icloud-for-linux.reminders
+StartupWMClass=icloud-for-linux.reminders

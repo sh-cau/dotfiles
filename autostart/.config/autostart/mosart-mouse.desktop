@@ -1,0 +1,5 @@
+[Desktop Entry]
+Type=Application
+Name=Set MOSART Mouse Speed
+Exec=/home/sh/.local/bin/set-mosart-mouse-speed
+Terminal=false

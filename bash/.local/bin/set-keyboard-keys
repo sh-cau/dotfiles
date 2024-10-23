@@ -1,0 +1,27 @@
+#!/bin/bash
+
+sleep 2
+DISPLAY=:0
+XAUTHORITY=/run/user/1000/gdm/Xauthority
+export DISPLAY XAUTHORITY
+
+/usr/bin/notify-send "Setting keyboard keys..."
+# keyboard configuration
+# kill xcape if it is already running (which resets key mappings)
+/usr/bin/ps aux | /usr/bin/grep -c '[x]cape' && /usr/bin/killall -9 xcape
+# make capslock a ctrl key
+# see /usr/share/X11/xkb/rules/xorg.lst for all options
+# I modified /etc/default/keyboard to include XKBOPTIONS="ctrl:nocaps" there as it does not seem to work with udev
+/usr/bin/setxkbmap -option ctrl:nocaps
+# see /usr/include/X11/keysymdef.h for key names
+# make control key (=capslock) an esc key when pressed on its own
+/usr/bin/xcape -e 'Control_L=Escape'
+# when left/right shift is pressed without anything else, make it a brace
+/usr/bin/xcape -e "Shift_L=ISO_Level3_Shift|braceleft;Shift_R=ISO_Level3_Shift|braceright"
+# when left/right alt is pressed without anything else, make it a parenthesis
+/usr/bin/xcape -e "Alt_L=parenleft;ISO_Level3_Shift=parenright"
+# when left suoer (windows) is pressed on its own, make it an opening square bracket
+/usr/bin/xcape -e "Super_L=ISO_Level3_Shift|bracketleft"
+# when right control is pressed on its own, make it a closing square bracket
+/usr/bin/xcape -e "Control_R=ISO_Level3_Shift|bracketright"
+echo "Keyboard keys modified" 

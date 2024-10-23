@@ -1,0 +1,8 @@
+#!/bin/bash
+
+if cat /sys/class/net/enp0s31f6/operstate == 'up'; then
+    nmcli co do Vodafone-064C
+else
+    echo "test"
+fi
+

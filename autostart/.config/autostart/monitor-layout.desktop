@@ -1,0 +1,5 @@
+[Desktop Entry]
+Type=Application
+Name=Set the Monitor Layout
+Exec=/home/sh/.local/bin/hotplug-monitor
+Terminal=false

@@ -1,0 +1,11 @@
+ACTION=="bind", \
+KERNELS=="*:046D:B342.*",\
+SUBSYSTEMS=="hid", \
+ENV{DISPLAY}=":0", \
+ENV{XAUTHORITY}="/run/user/1000/gdm/Xauthority", \
+RUN+="/home/sh/.local/bin/set-keyboard-keys-udev"
+
+# using (input) as subsystem is too early!
+# SUBSYSTEM=="hid", \
+# ATTR{phys}=="f0:77:c3:e3:68:3a", \
+# ATTR{uniq}=="f4:73:35:90:5c:10", \

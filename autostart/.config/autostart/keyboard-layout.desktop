@@ -1,0 +1,5 @@
+[Desktop Entry]
+Type=Application
+Name=Set the Keyboard Keys
+Exec=/home/sh/.local/bin/set-keyboard-keys
+Terminal=false

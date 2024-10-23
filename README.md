@@ -9,3 +9,8 @@ To remove the symlinks, run the following command:
 ```bash
 stow -D nvim
 ```
+
+To stow `udev` rules, use 
+```bash
+sudo stow -t / -d ./ udev
+```

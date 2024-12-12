@@ -33,8 +33,8 @@ alias vi="nvim"
 alias vim="nvim"
 
 # vpn
-alias kitvpn="sudo openvpn --daemon --config ~/work/projects/mvm-dpe/orga/vpn/kit-v6.ovpn"
-alias kitsplitvpn="sudo openvpn --daemon --config ~/work/projects/mvm-dpe/orga/vpn/kit-split.ovpn"
+alias kitvpn="sudo openvpn --daemon --status openvpn-log.txt 10 --config ~/work/projects/mvm-dpe/orga/vpn/kit-v6.ovpn"
+alias kitsplitvpn="sudo openvpn --status /home/sh/openvpn-log.txt 10 --daemon --config ~/work/projects/mvm-dpe/orga/vpn/kit-split.ovpn"
 
 # backups
 alias backuptex="fd -t f -e tex -p tandalone ~/work -x rsync -a --stats "{}" ~/nextcloud-kit/.backup/.texStandalones"

@@ -1,8 +1,6 @@
 return {
     'MortenStabenau/matlab-vim',
     config = function()
-        local map = require('utils').map
-
         vim.g.matlab_default_mappings=0
         vim.g.matlab_executable='/home/sh/programs/MATLAB/R2023a/bin/matlab'
         vim.g.matlab_auto_start=0
@@ -16,12 +14,13 @@ return {
         augroup END
         ]]
 
-        -- execute current line in matlab
-        map("n","<leader>ms",":MatlabStartServer<CR>")
-        map("n","<leader>mx",":MatlabStopServer<CR>")
-        map("n","<leader>mb",":MatlabBreakpoint<CR>")
-        map("n","<leader>mr",":MatlabRun<CR>")
-        map("n","<leader>mc",":MatlabClearBreakpoints<CR>")
-        map("n","<leader>md",":MatlabDoc<CR>")
-    end
+    end,
+    keys = {
+        {"<leader>ms",":MatlabStartServer<CR>"},
+        {"<leader>mx",":MatlabStopServer<CR>"},
+        {"<leader>mb",":MatlabBreakpoint<CR>"},
+        {"<leader>mr",":MatlabRun<CR>"},
+        {"<leader>mc",":MatlabClearBreakpoints<CR>"},
+        {"<leader>md",":MatlabDoc<CR>"},
+    }
 }

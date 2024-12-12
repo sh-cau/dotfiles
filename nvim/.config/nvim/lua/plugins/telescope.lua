@@ -59,6 +59,7 @@ return {
             map('n', '<leader>fw', function() builtin.find_files({ cwd = "$HOME/work/", prompt_title = "Find in work/", hidden = true }) end)
             map('n', '<leader>fC', function() builtin.find_files({ cwd = "$HOME/.config/", prompt_title = "Find in ~/.config/", hidden = true }) end)
             -- <leader>f_ mappings to find other things
+            map('n', '<leader>fH', function() builtin.command_history({ prompt_title = "Command history" }) end)
             map('n', '<leader>fc', function() builtin.commands({ prompt_title = "Find command" }) end)
             map('n', '<leader>fb', function() builtin.buffers({ prompt_title = "Find buffers" }) end)
             map('n', '<leader>ff', function() builtin.live_grep({ prompt_title = "Find pattern in files (live)", hidden = true, follow = true, max_results = 25 }) end)

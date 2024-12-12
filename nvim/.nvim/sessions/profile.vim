@@ -16,15 +16,16 @@ endif
 badd +9 manual-release
 badd +6 .gitlab-ci-profile.yml
 badd +17 ~/repos/casadi/casadi/interfaces/snopt/snopt_interface.cpp
-badd +371 README.md
+badd +1 README.md
 badd +4 runAllTests.m
 badd +1 fetch_all.sh
 badd +39 term://~/work/projects/mvm-dpe/gitlab/maritime/gitlab-profile//125997:/bin/bash
-badd +67 .gitlab-ci-module.yml
+badd +61 .gitlab-ci-module.yml
 badd +9 docker/nyx-bash/Dockerfile
 badd +10 docker/alpine-bash-git-wget-yq/Dockerfile
 badd +34 ~/docker/matlab-gitlab/permanent/Dockerfile
-badd +14 ~/work/projects/mvm-dpe/gitlab/maritime/gitlab-profile/docker/matlab/Dockerfile
+badd +29 ~/work/projects/mvm-dpe/gitlab/maritime/gitlab-profile/docker/matlab/Dockerfile
+badd +14 docker/nyx-bash/.nyx.yaml
 argglobal
 %argdel
 tabnew +setlocal\ bufhidden=wipe
@@ -49,9 +50,9 @@ normal! zt
 keepjumps 9
 normal! 034|
 tabnext
-edit README.md
+edit ~/work/projects/mvm-dpe/gitlab/maritime/gitlab-profile/docker/matlab/Dockerfile
 argglobal
-balt ~/work/projects/mvm-dpe/gitlab/maritime/gitlab-profile/docker/matlab/Dockerfile
+balt README.md
 setlocal fdm=manual
 setlocal fde=0
 setlocal fmr={{{,}}}
@@ -62,12 +63,12 @@ setlocal fdn=20
 setlocal fen
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 380 - ((17 * winheight(0) + 33) / 67)
+let s:l = 29 - ((28 * winheight(0) + 33) / 67)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 380
-normal! 062|
+keepjumps 29
+normal! 05|
 tabnext 2
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0 && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'
   silent exe 'bwipe ' . s:wipebuf

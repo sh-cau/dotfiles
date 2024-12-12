@@ -13,15 +13,15 @@ if &shortmess =~ 'A'
 else
   set shortmess=aoO
 endif
-badd +15 README.md
-badd +7 src/@Value/Value.m
-badd +29 src/@Trajectory/plot.m
+badd +14 README.md
+badd +19 src/@Value/Value.m
+badd +37 src/@Trajectory/plot.m
 badd +2 src/assertion/mustBeSquare.m
 badd +4 test/runTestsTypes.m
-badd +1 src/+base/@ValueBase/ValueBase.m
+badd +122 src/+base/@ValueBase/ValueBase.m
 badd +1 src/+aux/R2.m
 badd +1 src/+aux/R3.m
-badd +1 src/+aux/angleDiff.m
+badd +2 src/+aux/angleDiff.m
 badd +1 src/+aux/angleDiffWGS.m
 badd +1 src/+aux/crossTrackError.m
 badd +1 src/+aux/kn2ms.m
@@ -33,18 +33,18 @@ badd +1 src/+aux/nm2m.m
 badd +1 src/+aux/pathParameter.m
 badd +1 src/+aux/rgb2hex.m
 badd +13 src/+base/@ValueBase/hasSubset.m
-badd +2 src/+base/@ValueBase/isAbstract.m
+badd +1 src/+base/@ValueBase/isAbstract.m
 badd +2 src/+base/@ValueBase/isInput.m
 badd +2 src/+base/@ValueBase/isState.m
-badd +1 src/+base/@ValueBase/renew.m
+badd +4 src/+base/@ValueBase/renew.m
 badd +11 src/+base/@ValueBase/subset.m
-badd +1 src/+base/@ValueBase/toCell.m
+badd +6 src/+base/@ValueBase/toCell.m
 badd +2 src/+base/@ValueBase/toStruct.m
 badd +50 src/+rrt/@MotionPrimitive/toTikz.m
-badd +77 src/@Coordinate/Coordinate.m
+badd +2 src/@Coordinate/Coordinate.m
 badd +1 src/@Trajectory/NEDplot.m
-badd +35 src/@Trajectory/Trajectory.m
-badd +33 src/@Trajectory/atTime.m
+badd +105 src/@Trajectory/Trajectory.m
+badd +16 src/@Trajectory/atTime.m
 badd +7 src/@Trajectory/resample.m
 badd +79 src/@Trajectory/toTikz.m
 badd +1 src/assertion/mustBeAOrEmpty.m
@@ -58,8 +58,7 @@ badd +5 src/assertion/mustBeStateOrAbstract.m
 badd +5 src/assertion/mustBeStateType.m
 badd +5 src/assertion/mustBeStateTypeOrNone.m
 badd +1 test/AuxiliaryUnitTests.m
-badd +102 test/TrajectoryUnitTests.m
-badd +1 test/runValueTests.m
+badd +15 test/TrajectoryUnitTests.m
 badd +1 test/trajectoryClassTests.m
 badd +41 src/+rrt/@BaseNode/BaseNode.m
 badd +1 src/+rrt/@BaseNode/plot.m
@@ -73,11 +72,11 @@ badd +111 src/+rrt/@MotionPrimitive/MotionPrimitive.m
 badd +1 src/+rrt/@MotionPrimitive/plot.m
 badd +1 src/+rrt/@MotionPrimitive/toStruct.m
 badd +5 src/assertion/mustBeState.m
-badd +18 data/enums/IntegratorType.m
+badd +4 data/enums/IntegratorType.m
 badd +1 data/enums/+rrt/TreeType.m
 badd +3 data/enums/AllocationMode.m
 badd +1 data/enums/ConstraintMode.m
-badd +15 data/enums/InterpolationType.m
+badd +8 data/enums/InterpolationType.m
 badd +1 data/enums/NumericIntegrationType.m
 badd +1 data/enums/ParameterizationType.m
 badd +1 data/enums/QCalculationType.m
@@ -89,23 +88,14 @@ badd +1 data/enums/SimulationMode.m
 badd +1 data/enums/SimulationType.m
 badd +1 data/enums/StaticObstacleType.m
 badd +1 data/enums/TranscriptionMethod.m
-badd +6 data/enums/ValueType.m
+badd +5 data/enums/ValueType.m
 badd +10 data/enums/VesselType.m
 badd +1 examples/example_dop_cybership.m
 badd +1 examples/example_dop_goddard.m
-badd +6 src/+enum/getAtomicValues.m
 badd +11 src/+enum/getDefaultInputType.m
 badd +6 src/+enum/getDisplayNames.m
 badd +28 src/+enum/getInterpolationName.m
-badd +8 src/+enum/getNumberOfValues.m
-badd +6 src/+enum/getUnit.m
-badd +1 src/+enum/getValueName.m
-badd +17 src/+enum/getVesselInfo.m
-badd +1 src/+enum/+interpolationToChar.m
-badd +5 src/+enum/isExplicit.m
-badd +5 src/+enum/isFixedStep.m
-badd +4 src/+enum/isInput.m
-badd +5 src/+enum/isState.m
+badd +7 src/+enum/getNumberOfValues.m
 badd +1 src/@DynamicOptimizationProblem/DynamicOptimizationProblem.m
 badd +1 src/@DynamicOptimizationProblem/construct.m
 badd +1 src/@DynamicOptimizationProblem/plot.m
@@ -114,40 +104,92 @@ badd +1 src/assertion/mustHaveSameNumberOfColumns.m
 badd +1 src/assertion/mustHaveSameNumberOfRows.m
 badd +1 test/CoordinateUnitTests.m
 badd +1 test/DynamicOptimizationProblemUnitTests.m
-badd +1 test/EnumUnitTests.m
+badd +2 test/EnumUnitTests.m
 badd +62 test/ValueUnitTests.m
 badd +1 src/+enum/interpolation/isConstant.m
 badd +12 test.m
 badd +1 test/valueClassTests.m
 badd +3 src/+enum/interpolationToChar.m
 badd +5 src/+enum/isVariableStep.m
-badd +26 src/+enum/getIntegratorName.m
-badd +6 src/+enum/getIntegratorFunctionHandle.m
-badd +2 man://end(3)
+badd +1 man://end(3)
 badd +6 src/+enum/isExtrapolating.m
 badd +1 src/@Trajectory/NEDcross.m
 badd +1 src/+enum/interpolate.m
 badd +1 src/+enum/getInterpolatedValue.m
-badd +3 src/+enum/isConstant.m
-badd +13 data/enums/AtomicType.m
-badd +12 src/compounds/PoseThreeDOF.m
-badd +15 src/compounds/PositionTwoDOF.m
+badd +1 src/+enum/isConstant.m
+badd +19 data/enums/AtomicType.m
+badd +2 src/compounds/PositionTwoDOF.m
 badd +2 src/compounds/test.m
-badd +3 data/enums/CompoundType.m
+badd +5 data/enums/CompoundType.m
 badd +1 src/+aux/lla2flat.m
 badd +1 src/+aux/flat2lla.m
 badd +1 src/+aux/latlondeg2flat.m
 badd +1 src/+rrt/@BaseTree/BaseTree.m
 badd +15 src/+enum/getDefaultStateType.m
-badd +2 src/codegenTest/testme.m
 badd +18 health://
 badd +8 CHANGELOG.md
-badd +2 fugitive:///home/sh/work/projects/mvm-dpe/gitlab/maritime/types/.git//
 badd +1 src/compounds/Position2DOF.m
 badd +1 src/compounds/Pose.m
 badd +6 src/compounds/Heading.m
 badd +1 src/Compound.m
-badd +6 src/+base/@ValueBase/atomicSubset.m
+badd +15 src/CompoundValue.m
+badd +1 src/compounds/PoseThreeDOF.m
+badd +6 src/+base/@ValueBase/getAtomicSubsetByType.m
+badd +27 src/compounds/PositionThreeDOF.m
+badd +10 src/compounds/FullStateThreeDOF.m
+badd +1 src/+enum/getCompoundAtomics.m
+badd +6 src/+enum/getCompoundUnits.m
+badd +1 src/+enum/getAtomicUnits.m
+badd +4 src/+enum/getCompoundName.m
+badd +9 src/+enum/getAtomicNames.m
+badd +7 src/+enum/getCompoundAtomicNames.m
+badd +3 src/+enum/isState.m
+badd +1 src/+enum/getValueName.m
+badd +1 src/+enum/getVesselInfo.m
+badd +4 src/+enum/isExplicit.m
+badd +8 ~/work/projects/mvm-dpe/gitlab/maritime/numericIntegration/src/+enum/getIntegratorName.m
+badd +1 ~/work/projects/mvm-dpe/gitlab/maritime/numericIntegration/src/+enum/getFunctionalRelation.m
+badd +13 ~/work/projects/mvm-dpe/gitlab/maritime/numericIntegration/src/+enum/getButcherTableau.m
+badd +17 ~/work/projects/mvm-dpe/gitlab/maritime/numericIntegration/src/Integrator.m
+badd +13 ~/work/projects/mvm-dpe/gitlab/maritime/numericIntegration/src/ruku4/ruku4ex.m
+badd +27 ~/work/projects/mvm-dpe/gitlab/maritime/numericIntegration/src/ruku4/ruku4e.m
+badd +1 ~/work/projects/mvm-dpe/gitlab/maritime/numericIntegration/src/euler/euler1ej.m
+badd +1 ~/work/projects/mvm-dpe/gitlab/maritime/numericIntegration/src/euler/euler1ex.m
+badd +1 src/+enum/isFixedStep.m
+badd +1 src/+enum/getAtomicValues.m
+badd +1 src/+enum/isInput.m
+badd +1 src/+enum/getUnit.m
+badd +1 src/+enum/getIntegratorFunctionHandle.m
+badd +1 src/+enum/getIntegratorName.m
+badd +1 ~/work/projects/mvm-dpe/gitlab/maritime/numericIntegration/src/+enum/getIntegratorFunctionHandle.m
+badd +1 undotree_2
+badd +6 ~/dotfiles/nvim/.config/nvim/lua/plugins/git.lua
+badd +1 src/codegenTest/testme.m
+badd +37 man://git-log(1)
+badd +1 ~/work/projects/mvm-dpe/gitlab/maritime/numericIntegration/src/+enum/getNumberOfValues.m
+badd +1 ~/work/projects/mvm-dpe/gitlab/maritime/numericIntegration/src/+enum/getUnit.m
+badd +1 ~/work/projects/mvm-dpe/gitlab/maritime/numericIntegration/src/+enum/interpolate.m
+badd +1 ~/work/projects/mvm-dpe/gitlab/maritime/numericIntegration/src/+enum/interpolationToChar.m
+badd +1 ~/work/projects/mvm-dpe/gitlab/maritime/numericIntegration/src/+enum/isConstant.m
+badd +1 ~/work/projects/mvm-dpe/gitlab/maritime/numericIntegration/src/+enum/isExplicit.m
+badd +1 ~/work/projects/mvm-dpe/gitlab/maritime/numericIntegration/src/+enum/isExtrapolating.m
+badd +1 ~/work/projects/mvm-dpe/gitlab/maritime/numericIntegration/src/+enum/isFixedStep.m
+badd +1 ~/work/projects/mvm-dpe/gitlab/maritime/numericIntegration/src/+enum/isInput.m
+badd +1 ~/work/projects/mvm-dpe/gitlab/maritime/numericIntegration/src/+enum/isVariableStep.m
+badd +1 ~/work/projects/mvm-dpe/gitlab/maritime/numericIntegration/src/+enum/getInterpolationName.m
+badd +1 ~/work/projects/mvm-dpe/gitlab/maritime/numericIntegration/data/enum/IntegratorType.m
+badd +1 test/runValueTests.m
+badd +6 ~/work/projects/mvm-dpe/gitlab/maritime/model/src/MWE/DoubleIntegrator.m
+badd +9 ~/work/projects/mvm-dpe/gitlab/maritime/model/dependencies/types/src/+base/@ValueBase/renew.m
+badd +6 ~/work/projects/mvm-dpe/gitlab/maritime/model/dependencies/types/src/@Trajectory/plot.m
+badd +3 ~/work/projects/mvm-dpe/gitlab/maritime/model/dependencies/types/src/@Trajectory/resample.m
+badd +2 ~/work/projects/mvm-dpe/gitlab/maritime/model/dependencies/types/src/@Trajectory/atTime.m
+badd +1 ~/work/projects/mvm-dpe/gitlab/maritime/model/dependencies/types/src/@Trajectory/interpolate.m
+badd +7 ~/work/projects/mvm-dpe/gitlab/maritime/model/dependencies/types/src/+enum/interpolate.m
+badd +26 ~/work/projects/mvm-dpe/gitlab/maritime/model/dependencies/types/src/@Trajectory/Trajectory.m
+badd +1 src/@Trajectory/interpolate.m
+badd +2 src/assertion/mustBeStrictlyLowerTriangular.m
+badd +1 ~/programs/MATLAB/R2023a/toolbox/matlab/matfun/istril.m
 argglobal
 %argdel
 $argadd src/+base/@ValueBase/isState.m
@@ -217,13 +259,13 @@ $argadd src/+enum/interpolate.m
 $argadd src/+enum/getNumberOfValues.m
 $argadd src/+enum/getVesselInfo.m
 $argadd src/+enum/isFixedStep.m
-$argadd src/+enum/getIntegratorFunctionHandle.m
+$argadd ~/work/projects/mvm-dpe/gitlab/maritime/numericIntegration/src/+enum/getIntegratorFunctionHandle.m
 $argadd src/+enum/isConstant.m
 $argadd src/+enum/getAtomicValues.m
 $argadd src/+enum/getInterpolationName.m
 $argadd src/+enum/isInput.m
 $argadd src/+enum/getUnit.m
-$argadd src/+enum/getIntegratorName.m
+$argadd ~/work/projects/mvm-dpe/gitlab/maritime/numericIntegration/src/+enum/getIntegratorName.m
 $argadd src/+enum/getDisplayNames.m
 $argadd src/+enum/isExplicit.m
 $argadd src/@Trajectory/toTikz.m
@@ -260,16 +302,15 @@ $argadd data/enums/+rrt/TreeType.m
 $argadd data/enums/AtomicType.m
 $argadd data/enums/RCalculationType.m
 tabnew +setlocal\ bufhidden=wipe
-tabnew +setlocal\ bufhidden=wipe
 tabrewind
-edit src/+base/@ValueBase/ValueBase.m
+edit src/+enum/interpolate.m
 argglobal
 105argu
-if bufexists(fnamemodify("src/+base/@ValueBase/ValueBase.m", ":p")) | buffer src/+base/@ValueBase/ValueBase.m | else | edit src/+base/@ValueBase/ValueBase.m | endif
+if bufexists(fnamemodify("src/+enum/interpolate.m", ":p")) | buffer src/+enum/interpolate.m | else | edit src/+enum/interpolate.m | endif
 if &buftype ==# 'terminal'
-  silent file src/+base/@ValueBase/ValueBase.m
+  silent file src/+enum/interpolate.m
 endif
-balt src/+enum/isInput.m
+balt src/@Trajectory/Trajectory.m
 setlocal fdm=manual
 setlocal fde=0
 setlocal fmr={{{,}}}
@@ -280,22 +321,21 @@ setlocal fdn=20
 setlocal fen
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 4 - ((1 * winheight(0) + 10) / 21)
+let s:l = 5 - ((1 * winheight(0) + 10) / 21)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 4
-normal! 07|
-lcd ~/work/projects/mvm-dpe/gitlab/maritime/types
+keepjumps 5
+normal! 0
 tabnext
-edit ~/work/projects/mvm-dpe/gitlab/maritime/types/src/+base/@ValueBase/ValueBase.m
+edit src/assertion/mustBeAOrEmpty.m
 argglobal
 1argu
-if bufexists(fnamemodify("~/work/projects/mvm-dpe/gitlab/maritime/types/src/+base/@ValueBase/ValueBase.m", ":p")) | buffer ~/work/projects/mvm-dpe/gitlab/maritime/types/src/+base/@ValueBase/ValueBase.m | else | edit ~/work/projects/mvm-dpe/gitlab/maritime/types/src/+base/@ValueBase/ValueBase.m | endif
+if bufexists(fnamemodify("src/assertion/mustBeAOrEmpty.m", ":p")) | buffer src/assertion/mustBeAOrEmpty.m | else | edit src/assertion/mustBeAOrEmpty.m | endif
 if &buftype ==# 'terminal'
-  silent file ~/work/projects/mvm-dpe/gitlab/maritime/types/src/+base/@ValueBase/ValueBase.m
+  silent file src/assertion/mustBeAOrEmpty.m
 endif
-balt ~/work/projects/mvm-dpe/gitlab/maritime/types/src/@Value/Value.m
+balt ~/programs/MATLAB/R2023a/toolbox/matlab/matfun/istril.m
 setlocal fdm=manual
 setlocal fde=0
 setlocal fmr={{{,}}}
@@ -306,90 +346,20 @@ setlocal fdn=20
 setlocal fen
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 46 - ((9 * winheight(0) + 10) / 21)
+let s:l = 1 - ((0 * winheight(0) + 10) / 21)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 46
-normal! 017|
-tabnext
-edit ~/work/projects/mvm-dpe/gitlab/maritime/types/src/+base/@ValueBase/ValueBase.m
-let s:save_splitbelow = &splitbelow
-let s:save_splitright = &splitright
-set splitbelow splitright
-wincmd _ | wincmd |
-split
-1wincmd k
-wincmd w
-let &splitbelow = s:save_splitbelow
-let &splitright = s:save_splitright
-wincmd t
-let s:save_winminheight = &winminheight
-let s:save_winminwidth = &winminwidth
-set winminheight=0
-set winheight=1
-set winminwidth=0
-set winwidth=1
-exe '1resize ' . ((&lines * 9 + 35) / 70)
-exe '2resize ' . ((&lines * 57 + 35) / 70)
-argglobal
-if bufexists(fnamemodify("~/work/projects/mvm-dpe/gitlab/maritime/types/src/+base/@ValueBase/ValueBase.m", ":p")) | buffer ~/work/projects/mvm-dpe/gitlab/maritime/types/src/+base/@ValueBase/ValueBase.m | else | edit ~/work/projects/mvm-dpe/gitlab/maritime/types/src/+base/@ValueBase/ValueBase.m | endif
-if &buftype ==# 'terminal'
-  silent file ~/work/projects/mvm-dpe/gitlab/maritime/types/src/+base/@ValueBase/ValueBase.m
-endif
-balt ~/work/projects/mvm-dpe/gitlab/maritime/types/src/@Value/Value.m
-setlocal fdm=manual
-setlocal fde=0
-setlocal fmr={{{,}}}
-setlocal fdi=#
-setlocal fdl=0
-setlocal fml=1
-setlocal fdn=20
-setlocal nofen
-silent! normal! zE
-1,72fold
-89,206fold
-let &fdl = &fdl
-let s:l = 8 - ((0 * winheight(0) + 4) / 9)
-if s:l < 1 | let s:l = 1 | endif
-keepjumps exe s:l
-normal! zt
-keepjumps 8
-normal! 07|
-wincmd w
-argglobal
-if bufexists(fnamemodify("fugitive:///home/sh/work/projects/mvm-dpe/gitlab/maritime/types/.git//", ":p")) | buffer fugitive:///home/sh/work/projects/mvm-dpe/gitlab/maritime/types/.git// | else | edit fugitive:///home/sh/work/projects/mvm-dpe/gitlab/maritime/types/.git// | endif
-if &buftype ==# 'terminal'
-  silent file fugitive:///home/sh/work/projects/mvm-dpe/gitlab/maritime/types/.git//
-endif
-balt ~/work/projects/mvm-dpe/gitlab/maritime/types/src/@Value/Value.m
-setlocal fdm=manual
-setlocal fde=0
-setlocal fmr={{{,}}}
-setlocal fdi=#
-setlocal fdl=0
-setlocal fml=1
-setlocal fdn=20
-setlocal fen
-let s:l = 2 - ((1 * winheight(0) + 28) / 57)
-if s:l < 1 | let s:l = 1 | endif
-keepjumps exe s:l
-normal! zt
-keepjumps 2
+keepjumps 1
 normal! 0
-wincmd w
-2wincmd w
-exe '1resize ' . ((&lines * 9 + 35) / 70)
-exe '2resize ' . ((&lines * 57 + 35) / 70)
-tabnext 3
+lcd ~/work/projects/mvm-dpe/gitlab/maritime/types
+tabnext 2
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0 && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'
   silent exe 'bwipe ' . s:wipebuf
 endif
 unlet! s:wipebuf
 set winheight=1 winwidth=20
 let &shortmess = s:shortmess_save
-let &winminheight = s:save_winminheight
-let &winminwidth = s:save_winminwidth
 let s:sx = expand("<sfile>:p:r")."x.vim"
 if filereadable(s:sx)
   exe "source " . fnameescape(s:sx)

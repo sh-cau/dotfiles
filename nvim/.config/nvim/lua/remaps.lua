@@ -9,9 +9,9 @@ map("n","gB",":bprev<CR>")
 map("n","<C-d>","<C-d>zz")
 map("n","<C-u>","<C-u>zz")
 map("n","<C-]>","<C-]>zz")
--- dont know why but this needs to be in reverse order to make sense to me
-map("n",",",";")
-map("n",";",",")
+-- -- dont know why but this needs to be in reverse order to make sense to me
+-- map("n",",",";")
+-- map("n",";",",")
 -- this makes sense on a german layout
 map("n","#","*")
 map("n","+","#")

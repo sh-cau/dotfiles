@@ -26,7 +26,8 @@ return {
                 require('lint').try_lint()
             end,
         })
-
-        map("n", "<leader>ll", function() require('lint').try_lint() end, { desc = "Trigger linting for current file" })
-    end
+    end,
+    keys = {
+        {"<leader>ll", function() require('lint').try_lint() end, { desc = "Trigger linting for current file" }},
+    }
 }

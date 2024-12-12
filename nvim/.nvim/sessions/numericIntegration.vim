@@ -13,10 +13,16 @@ if &shortmess =~ 'A'
 else
   set shortmess=aoO
 endif
-badd +1 oil:///home/sh/work/projects/mvm-dpe/gitlab/maritime/numericIntegration/src/euler/
+badd +1 README.md
+badd +7 health://
+badd +2 src/+enum/isContinuous.m
+badd +1 test/NumericIntegrationEnumUnitTests.m
 argglobal
 %argdel
-edit oil:///home/sh/work/projects/mvm-dpe/gitlab/maritime/numericIntegration/src/euler/
+tabnew +setlocal\ bufhidden=wipe
+tabnew +setlocal\ bufhidden=wipe
+tabrewind
+edit README.md
 argglobal
 setlocal fdm=manual
 setlocal fde=0
@@ -28,13 +34,54 @@ setlocal fdn=20
 setlocal fen
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 1 - ((0 * winheight(0) + 10) / 21)
+let s:l = 139 - ((6 * winheight(0) + 10) / 21)
+if s:l < 1 | let s:l = 1 | endif
+keepjumps exe s:l
+normal! zt
+keepjumps 139
+normal! 0129|
+tabnext
+edit test/NumericIntegrationEnumUnitTests.m
+argglobal
+balt src/+enum/isContinuous.m
+setlocal fdm=manual
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal fen
+silent! normal! zE
+let &fdl = &fdl
+let s:l = 60 - ((17 * winheight(0) + 33) / 67)
+if s:l < 1 | let s:l = 1 | endif
+keepjumps exe s:l
+normal! zt
+keepjumps 60
+normal! 0
+tabnext
+edit src/+enum/isContinuous.m
+argglobal
+balt test/NumericIntegrationEnumUnitTests.m
+setlocal fdm=manual
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal fen
+silent! normal! zE
+let &fdl = &fdl
+let s:l = 1 - ((0 * winheight(0) + 33) / 67)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
 keepjumps 1
 normal! 0
-tabnext 1
+lcd ~/work/projects/mvm-dpe/gitlab/maritime/numericIntegration
+tabnext 3
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0 && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'
   silent exe 'bwipe ' . s:wipebuf
 endif

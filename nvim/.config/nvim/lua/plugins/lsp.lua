@@ -63,6 +63,10 @@ return {
                     }
                 }
             })
+            lspconfig.clangd.setup({
+                capabilities = capabilities,
+                filetype = { "c", "cpp", "objc", "objcpp", "cuda", "proto" },
+            })
             local function quickfix() vim.lsp.buf.code_action({ apply = true }) end
             local map = require('utils').map
             vim.api.nvim_create_autocmd('LspAttach', {
